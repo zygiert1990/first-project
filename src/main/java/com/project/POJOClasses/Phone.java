@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Phone {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 15)
     private String phoneType;
@@ -16,6 +16,10 @@ public class Phone {
     private User user;
 
     public Phone(){}
+
+    public Phone(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
 
     public long getId() {
         return id;
