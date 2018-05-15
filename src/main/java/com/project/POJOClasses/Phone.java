@@ -21,6 +21,11 @@ public class Phone {
         this.phoneNumber = phoneNumber;
     }
 
+    public Phone(String phoneType, String phoneNumber) {
+        this.phoneType = phoneType;
+        this.phoneNumber = phoneNumber;
+    }
+
     public long getId() {
         return id;
     }
