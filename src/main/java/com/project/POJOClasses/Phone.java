@@ -17,10 +17,6 @@ public class Phone {
 
     public Phone(){}
 
-    public Phone(String phoneNumber){
-        this.phoneNumber = phoneNumber;
-    }
-
     public Phone(String phoneType, String phoneNumber) {
         this.phoneType = phoneType;
         this.phoneNumber = phoneNumber;

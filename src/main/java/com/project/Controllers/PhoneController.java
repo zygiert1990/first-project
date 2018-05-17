@@ -19,8 +19,8 @@ public class PhoneController {
     @PostMapping(value = "/add")
     public Phone addPhone(
             @RequestBody Phone phoneRequest
-    ){
-        Phone phone = new Phone(phoneRequest.getPhoneNumber());
+    ) {
+        Phone phone = new Phone(phoneRequest.getPhoneType(), phoneRequest.getPhoneNumber());
         phoneService.addPhone(phone);
         return phone;
     }
