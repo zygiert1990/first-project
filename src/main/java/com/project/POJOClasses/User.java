@@ -28,8 +28,11 @@ public class User implements Serializable{
 
     public User(){}
 
-    public User(String firstName){
+    public User(String userType, String firstName, String lastName, Date birthDate) {
+        this.userType = userType;
         this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
     }
 
     public User(String userType,

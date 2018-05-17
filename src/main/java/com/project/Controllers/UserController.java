@@ -18,11 +18,14 @@ public class UserController {
 
     @PostMapping(value = "/add")
     public User add(
-        @RequestBody User userRequest
-    ){
-        User user = new User(userRequest.getFirstName());
-                userService.addUser(user);
-                return user;
+            @RequestBody User userRequest
+    ) {
+        User user = new User(userRequest.getUserType(),
+                userRequest.getFirstName(),
+                userRequest.getLastName(),
+                userRequest.getBirthDate());
+        userService.addUser(user);
+        return user;
     }
 
 }
