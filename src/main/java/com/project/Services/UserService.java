@@ -20,4 +20,8 @@ public class UserService{
         userRepository.delete(user);
     }
 
+    public User findUserById(long id){
+        return userRepository.findById(id);
+    }
+
 }

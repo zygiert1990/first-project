@@ -5,7 +5,7 @@ import com.project.Repositories.PhonesRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PhoneService {
+public class PhoneService{
     private final PhonesRepository phonesRepository;
 
     public PhoneService(PhonesRepository phonesRepository) {
@@ -18,6 +18,10 @@ public class PhoneService {
 
     public void deletePhone(Phone phone){
         phonesRepository.delete(phone);
+    }
+
+    public Phone findPhoneByPhoneNumber(String phoneNumber){
+        return phonesRepository.findByPhoneNumber(phoneNumber);
     }
 
 }
