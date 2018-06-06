@@ -9,19 +9,20 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private AddressType addressType;
-    @Column(length = 45)
+    @Column(length = 45, nullable = false)
     private String city;
-    @Column(length = 6)
+    @Column(length = 6, nullable = false)
     private String zipCode;
-    @Column(length = 45)
+    @Column(length = 45, nullable = false)
     private String street;
-    @Column(length = 5)
+    @Column(length = 5, nullable = false)
     private String homeNumber;
     @Column(length = 5)
     private String flatNumber;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Address(){}

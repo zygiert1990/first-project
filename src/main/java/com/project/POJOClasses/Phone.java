@@ -9,14 +9,20 @@ public class Phone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private PhoneType phoneType;
-    @Column(length = 9)
+    @Column(length = 9, unique = true, nullable = false)
     private String phoneNumber;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Phone(){}
+
+    public Phone(PhoneType phoneType, String phoneNumber) {
+        this.phoneType = phoneType;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;

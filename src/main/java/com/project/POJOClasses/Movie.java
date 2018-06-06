@@ -8,9 +8,9 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 45)
+    @Column(length = 45, nullable = false)
     private String title;
-    @Column(length = 4)
+    @Column(length = 4, nullable = false)
     private String releaseYear;
     @OneToMany(mappedBy = "movie")
     private Set<Comment> comments;

@@ -12,10 +12,11 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private UserType userType;
-    @Column(length = 45)
+    @Column(length = 45, nullable = false)
     private String firstName;
-    @Column(length = 45)
+    @Column(length = 45, nullable = false)
     private String lastName;
     private Date birthDate;
     @OneToMany(mappedBy = "user")
