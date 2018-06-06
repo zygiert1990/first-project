@@ -4,6 +4,7 @@ import com.project.Model.UserType;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ public class User implements Serializable{
     private String firstName;
     @Column(length = 45, nullable = false)
     private String lastName;
-    private Date birthDate;
+    private LocalDate birthDate;
     @OneToMany(mappedBy = "user")
     private Set<Address> addresses;
     @OneToMany(mappedBy = "user")
@@ -30,26 +31,11 @@ public class User implements Serializable{
 
     public User(){}
 
-    public User(String firstName, String lastName, Date birthDate) {
+    public User(UserType userType, String firstName, String lastName, LocalDate birthDate) {
+        this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-    }
-
-    public User(String firstName,
-                String lastName,
-                Date birthDate,
-                Set<Address> addresses,
-                Set<Phone> phones,
-                Set<Comment> comments,
-                Set<Movie> movies) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.addresses = addresses;
-        this.phones = phones;
-        this.comments = comments;
-        this.movies = movies;
     }
 
     public long getId() {
@@ -84,11 +70,11 @@ public class User implements Serializable{
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
