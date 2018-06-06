@@ -9,10 +9,10 @@ public class Comment {
     private long id;
     private String text;
     @ManyToOne
-    @JoinColumn(name = "User_idUser")
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
-    @JoinColumn(name = "Movie_idMovie")
+    @JoinColumn(name = "movie_id")
     private Movie movie;
 
     public Comment(){}

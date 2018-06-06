@@ -1,5 +1,7 @@
 package com.project.POJOClasses;
 
+import com.project.Model.UserType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,8 +12,7 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 15)
-    private String userType;
+    private UserType userType;
     @Column(length = 45)
     private String firstName;
     @Column(length = 45)
@@ -28,22 +29,19 @@ public class User implements Serializable{
 
     public User(){}
 
-    public User(String userType, String firstName, String lastName, Date birthDate) {
-        this.userType = userType;
+    public User(String firstName, String lastName, Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
     }
 
-    public User(String userType,
-                String firstName,
+    public User(String firstName,
                 String lastName,
                 Date birthDate,
                 Set<Address> addresses,
                 Set<Phone> phones,
                 Set<Comment> comments,
                 Set<Movie> movies) {
-        this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
@@ -61,11 +59,11 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 

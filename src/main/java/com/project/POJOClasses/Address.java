@@ -1,5 +1,7 @@
 package com.project.POJOClasses;
 
+import com.project.Model.AddressType;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,8 +9,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 15)
-    private String adressType;
+    private AddressType addressType;
     @Column(length = 45)
     private String city;
     @Column(length = 6)
@@ -20,7 +21,7 @@ public class Address {
     @Column(length = 5)
     private String flatNumber;
     @ManyToOne
-    @JoinColumn(name = "User_idUser")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Address(){}
@@ -37,12 +38,12 @@ public class Address {
         this.id = id;
     }
 
-    public String getAdressType() {
-        return adressType;
+    public AddressType getAddressType() {
+        return addressType;
     }
 
-    public void setAdressType(String adressType) {
-        this.adressType = adressType;
+    public void setAddressType(AddressType addressType) {
+        this.addressType = addressType;
     }
 
     public String getCity() {

@@ -1,5 +1,7 @@
 package com.project.POJOClasses;
 
+import com.project.Model.PhoneType;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,18 +9,16 @@ public class Phone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(length = 15)
-    private String phoneType;
+    private PhoneType phoneType;
     @Column(length = 9)
     private String phoneNumber;
     @ManyToOne
-    @JoinColumn(name = "User_idUser")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Phone(){}
 
-    public Phone(String phoneType, String phoneNumber) {
-        this.phoneType = phoneType;
+    public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -30,11 +30,11 @@ public class Phone {
         this.id = id;
     }
 
-    public String getPhoneType() {
+    public PhoneType getPhoneType() {
         return phoneType;
     }
 
-    public void setPhoneType(String phoneType) {
+    public void setPhoneType(PhoneType phoneType) {
         this.phoneType = phoneType;
     }
 

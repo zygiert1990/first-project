@@ -13,18 +13,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(value = "/add")
-    public User add(
-            @RequestBody User userRequest
-    ) {
-        User user = new User(userRequest.getUserType(),
-                userRequest.getFirstName(),
-                userRequest.getLastName(),
-                userRequest.getBirthDate());
-        userService.addUser(user);
-        return user;
-    }
-
     @GetMapping(value = "/show/{id}")
     public User show(@PathVariable("id") long id){
         return userService.findUserById(id);
