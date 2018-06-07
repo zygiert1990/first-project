@@ -1,8 +1,8 @@
 package com.project.Controllers;
 
+import com.project.POJOClasses.Phone;
 import com.project.Services.PhoneService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("phones")
@@ -11,6 +11,14 @@ public class PhoneController {
 
     public PhoneController(PhoneService phoneService) {
         this.phoneService = phoneService;
+    }
+
+    @PostMapping(value = "/add/{id}")
+    public void addMobilePhone(
+            @RequestBody Phone phoneRequest,
+            @PathVariable("id") long userId
+    ){
+        phoneService.addPhone(phoneRequest, userId);
     }
 
 }

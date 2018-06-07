@@ -23,7 +23,13 @@ public class UserController {
 
     @PostMapping(value = "/add")
     public void addWatcher(@RequestBody User request){
-        userService.addUser(new User(UserType.WATCHER, request.getFirstName(), request.getLastName(), LocalDate.now()));
+        userService.addUser(
+                new User(UserType.WATCHER, request.getFirstName(), request.getLastName(), request.getBirthDate()));
+    }
+
+    @PostMapping(value = "update/{id}")
+    public void updateUser(@RequestBody User request, @PathVariable("id") long id){
+        userService.updateUser(request, id);
     }
 
 }

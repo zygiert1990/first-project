@@ -5,7 +5,6 @@ import com.project.Model.UserType;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -22,7 +21,7 @@ public class User implements Serializable{
     private LocalDate birthDate;
     @OneToMany(mappedBy = "user")
     private Set<Address> addresses;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Phone> phones;
     @OneToMany(mappedBy = "user")
     private Set<Comment> comments;

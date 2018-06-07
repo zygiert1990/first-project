@@ -24,6 +24,12 @@ public class Phone {
         this.phoneNumber = phoneNumber;
     }
 
+    public Phone(PhoneType phoneType, String phoneNumber, User user) {
+        this.phoneType = phoneType;
+        this.phoneNumber = phoneNumber;
+        this.user = user;
+    }
+
     public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
