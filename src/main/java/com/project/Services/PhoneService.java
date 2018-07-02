@@ -19,7 +19,7 @@ public class PhoneService{
 
     public void addPhone(Phone phone, long userId) {
         User user = userRepository.findById(userId);
-        Phone phoneToAdd = new Phone(PhoneType.MOBILE, phone.getPhoneNumber(), user);
+        Phone phoneToAdd = new Phone(phone.getPhoneType(), phone.getPhoneNumber(), user);
         user.getPhones().add(phoneToAdd);
         phoneRepository.save(phoneToAdd);
     }

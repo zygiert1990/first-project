@@ -5,8 +5,6 @@ import com.project.POJOClasses.User;
 import com.project.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-
 @RestController
 @RequestMapping("users")
 public class UserController {
