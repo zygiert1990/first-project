@@ -5,7 +5,7 @@ import com.project.Model.PhoneType;
 import javax.persistence.*;
 
 @Entity
-public class Phone {
+public class Phone implements Comparable<Phone>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -64,5 +64,13 @@ public class Phone {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public int compareTo(Phone o) {
+        return Integer.
+                compare(
+                    Integer.valueOf(Long.valueOf(this.id).toString()),
+                    Integer.valueOf(Long.valueOf(o.getId()).toString()));
     }
 }

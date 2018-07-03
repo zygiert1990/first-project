@@ -1,6 +1,5 @@
 package com.project.Services;
 
-import com.project.Model.PhoneType;
 import com.project.POJOClasses.Phone;
 import com.project.POJOClasses.User;
 import com.project.Repositories.PhoneRepository;
@@ -23,6 +22,8 @@ public class PhoneService{
         user.getPhones().add(phoneToAdd);
         phoneRepository.save(phoneToAdd);
     }
+
+    public Phone findPhoneById(long id) { return phoneRepository.findById(id); }
 
     public void deletePhone(Phone phone){
         phoneRepository.delete(phone);

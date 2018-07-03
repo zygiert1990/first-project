@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Entity
 public class User implements Serializable{
@@ -35,6 +36,7 @@ public class User implements Serializable{
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
+        this.phones = new TreeSet<>();
     }
 
     public long getId() {

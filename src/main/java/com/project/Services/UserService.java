@@ -3,6 +3,7 @@ package com.project.Services;
 import com.project.POJOClasses.User;
 import com.project.Repositories.UserRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
