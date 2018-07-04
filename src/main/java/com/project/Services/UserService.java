@@ -2,9 +2,9 @@ package com.project.Services;
 
 import com.project.POJOClasses.User;
 import com.project.Repositories.UserRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService{
@@ -33,5 +33,7 @@ public class UserService{
         if (user.getBirthDate()!=null) userToUpdate.setBirthDate(user.getBirthDate());
         userRepository.flush();
     }
+
+    public List<User> findAllUsers() { return userRepository.findAll(); }
 
 }
