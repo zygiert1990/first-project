@@ -4,6 +4,8 @@ import com.project.POJOClasses.Address;
 import com.project.Repositories.AddressRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AddressService {
     private final AddressRepository addressRepository;
@@ -18,6 +20,14 @@ public class AddressService {
 
     public void deleteAddress(Address address){
         addressRepository.delete(address);
+    }
+
+    public List<Address> findAll(){
+        return addressRepository.findAll();
+    }
+
+    public Address findByCity(String city){
+        return addressRepository.findByCity(city);
     }
 
 }

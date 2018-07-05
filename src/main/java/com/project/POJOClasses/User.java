@@ -37,6 +37,7 @@ public class User implements Serializable{
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.phones = new TreeSet<>();
+        this.addresses = new TreeSet<>();
     }
 
     public long getId() {

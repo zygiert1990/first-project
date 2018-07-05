@@ -1,6 +1,8 @@
 package com.project.Controllers;
 
 import com.project.Model.UserType;
+import com.project.Model.WrapperDto;
+import com.project.POJOClasses.Address;
 import com.project.POJOClasses.User;
 import com.project.Services.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +22,23 @@ public class UserController {
     }
 
     @PostMapping(value = "/add")
-    public void addWatcher(@RequestBody User request){
+    public void addWatcher(
+            @RequestBody WrapperDto request
+            ){
+        User user = request.getUser();
+        user.getUserType();
         userService.addUser(
-                new User(UserType.WATCHER, request.getFirstName(), request.getLastName(), request.getBirthDate()));
+                new User(
+                        user.getUserType(),
+                        request.getUser().getFirstName(),
+                        request.getUser().getLastName(),
+                        request.getUser().getBirthDate()),
+                new Address(
+                        request.getAddress().getAddressType(),
+                        request.getAddress().getCity(),
+                        request.getAddress().getZipCode(),
+                        request.getAddress().getStreet(),
+                        request.getAddress().getHomeNumber()));
     }
 
     @PostMapping(value = "update/{id}")

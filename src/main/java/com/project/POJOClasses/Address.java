@@ -5,7 +5,7 @@ import com.project.Model.AddressType;
 import javax.persistence.*;
 
 @Entity
-public class Address {
+public class Address implements Comparable<Address>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,6 +26,14 @@ public class Address {
     private User user;
 
     public Address(){}
+
+    public Address(AddressType addressType, String city, String zipCode, String street, String homeNumber) {
+        this.addressType = addressType;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.street = street;
+        this.homeNumber = homeNumber;
+    }
 
     public Address(String city){
         this.city = city;
@@ -94,4 +102,13 @@ public class Address {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public int compareTo(Address o) {
+        return Integer.
+                compare(
+                        Integer.valueOf(Long.valueOf(this.id).toString()),
+                        Integer.valueOf(Long.valueOf(o.getId()).toString()));
+    }
+
 }
