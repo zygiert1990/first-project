@@ -1,5 +1,6 @@
 package com.project.Repositories;
 
+import com.project.Model.AddressType;
 import com.project.POJOClasses.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,5 +14,7 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
     List<Address> findAll();
 
     Address findByCity(String city);
+
+    Address findByAddressType(AddressType addressType);
 
 }
