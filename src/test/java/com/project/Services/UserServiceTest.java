@@ -43,7 +43,7 @@ public class UserServiceTest {
     private TestEntityManager entityManager;
 
     @Test
-    public void couldFIndUserById(){
+    public void couldFindUserById(){
         //given
         User user = new User(UserType.DIRECTOR, "waclaw", "waclaw", LocalDate.now());
         Address address = new Address(AddressType.HOME, "lbn", "witosa", "122", "25");

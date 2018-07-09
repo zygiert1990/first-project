@@ -7,8 +7,10 @@ import com.project.POJOClasses.User;
 import com.project.Services.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
 
@@ -16,9 +18,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/show/{id}")
-    public User show(@PathVariable("id") long id){
-        return userService.findUserById(id);
+    @GetMapping(value = "/show/{firstName}")
+    public User show(@PathVariable("firstName") String firstName){
+        return userService.findByFirstName(firstName);
+    }
+
+    @GetMapping(value = "/show/allUsers")
+    public List<User> showAll(){
+        return userService.findAllUsers();
     }
 
     @PostMapping(value = "/add")
@@ -41,7 +48,7 @@ public class UserController {
                         request.getAddress().getHomeNumber()));
     }
 
-    @PostMapping(value = "update/{id}")
+    @PostMapping(value = "/update/{id}")
     public void updateUser(@RequestBody User request, @PathVariable("id") long id){
         userService.updateUser(request, id);
     }

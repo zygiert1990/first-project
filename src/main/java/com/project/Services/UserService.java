@@ -25,6 +25,10 @@ public class UserService{
         addressRepository.save(address);
     }
 
+    public User findByFirstName(String firstName){
+        return userRepository.findByFirstName(firstName);
+    }
+
     public void deleteUser(User user){
         userRepository.delete(user);
     }

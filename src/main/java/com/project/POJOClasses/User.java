@@ -40,6 +40,11 @@ public class User implements Serializable{
         this.addresses = new TreeSet<>();
     }
 
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public long getId() {
         return id;
     }
