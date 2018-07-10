@@ -3,6 +3,7 @@ package com.project.POJOClasses;
 import com.project.Model.AddressType;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Address implements Comparable<Address>{
@@ -111,4 +112,38 @@ public class Address implements Comparable<Address>{
                         Integer.valueOf(Long.valueOf(o.getId()).toString()));
     }
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", addressType=" + addressType +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", street='" + street + '\'' +
+                ", homeNumber='" + homeNumber + '\'' +
+                ", flatNumber='" + flatNumber + '\'' +
+                ", user=" + user +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Address)) return false;
+        Address address = (Address) o;
+        return getId() == address.getId() &&
+                getAddressType() == address.getAddressType() &&
+                Objects.equals(getCity(), address.getCity()) &&
+                Objects.equals(getZipCode(), address.getZipCode()) &&
+                Objects.equals(getStreet(), address.getStreet()) &&
+                Objects.equals(getHomeNumber(), address.getHomeNumber()) &&
+                Objects.equals(getFlatNumber(), address.getFlatNumber()) &&
+                Objects.equals(getUser(), address.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getId(), getAddressType(), getCity(), getZipCode(), getStreet(), getHomeNumber(), getFlatNumber(), getUser());
+    }
 }

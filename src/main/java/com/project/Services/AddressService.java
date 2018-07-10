@@ -8,14 +8,15 @@ import java.util.List;
 
 @Service
 public class AddressService {
+
     private final AddressRepository addressRepository;
 
     public AddressService(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
 
-    public void addAddress(Address address){
-        addressRepository.save(address);
+    public Address addAddress(Address address){
+        return addressRepository.save(address);
     }
 
     public void deleteAddress(Address address){

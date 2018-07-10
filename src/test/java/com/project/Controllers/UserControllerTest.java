@@ -57,7 +57,7 @@ public class UserControllerTest {
 
         given(userService.findByFirstName(FIRST_NAME)).willReturn(user);
 
-        mockMvc.perform(get("http://localhost:8080users/show/{firstName}", "michal"))
+        mockMvc.perform(get("/users/show/{firstName}", "michal"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").exists());
     }
@@ -70,13 +70,15 @@ public class UserControllerTest {
 
         given(userService.findAllUsers()).willReturn(userList);
 
-        mockMvc.perform(get("http://localhost:8080users/show/allUsers"))
+        mockMvc.perform(get("/users/show/allUsers"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$").exists())
                 .andExpect(jsonPath("$[0].firstName").isString())
                 .andExpect(jsonPath("$[0].birthDate").isEmpty());
+        }
 
-    }
-
+//        @Test
+//    public void sh
+//
 }

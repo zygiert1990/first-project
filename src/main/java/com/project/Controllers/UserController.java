@@ -32,11 +32,9 @@ public class UserController {
     public void addWatcher(
             @RequestBody WrapperDto request
             ){
-        User user = request.getUser();
-        user.getUserType();
         userService.addUser(
                 new User(
-                        user.getUserType(),
+                        request.getUser().getUserType(),
                         request.getUser().getFirstName(),
                         request.getUser().getLastName(),
                         request.getUser().getBirthDate()),

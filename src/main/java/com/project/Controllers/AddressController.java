@@ -2,27 +2,43 @@ package com.project.Controllers;
 
 import com.project.POJOClasses.Address;
 import com.project.Services.AddressService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("addresses")
 public class AddressController {
+
     private final AddressService addressService;
 
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }
 
-    @PostMapping(value = "/add")
+    @PutMapping(value = "/add/{city}")
     public Address addAddress(
-            @RequestBody Address addressRequest
-    ){
-        Address address = new Address(addressRequest.getCity());
+            @PathVariable("city") String city
+    ) {
+        Address address = new Address(city);
         addressService.addAddress(address);
         return address;
+    }
+
+    @GetMapping(value = "/show/{city}")
+    public Address showAddress(@PathVariable("city") String city) {
+        return addressService.findByCity(city);
+    }
+
+    @PostMapping(value = "/save")
+    public Address addWholeAddress(
+            @RequestBody Address address
+    ) {
+        return addressService.addAddress(
+                new Address(
+                        address.getAddressType(),
+                        address.getCity(),
+                        address.getZipCode(),
+                        address.getStreet(),
+                        address.getHomeNumber()));
     }
 
 }
