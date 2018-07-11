@@ -29,6 +29,7 @@ public class AddressController {
     }
 
     @PostMapping(value = "/save")
+    @ResponseBody
     public Address addWholeAddress(
             @RequestBody Address address
     ) {

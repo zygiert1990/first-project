@@ -137,13 +137,12 @@ public class Address implements Comparable<Address>{
                 Objects.equals(getZipCode(), address.getZipCode()) &&
                 Objects.equals(getStreet(), address.getStreet()) &&
                 Objects.equals(getHomeNumber(), address.getHomeNumber()) &&
-                Objects.equals(getFlatNumber(), address.getFlatNumber()) &&
-                Objects.equals(getUser(), address.getUser());
+                Objects.equals(getFlatNumber(), address.getFlatNumber());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getAddressType(), getCity(), getZipCode(), getStreet(), getHomeNumber(), getFlatNumber(), getUser());
+        return Objects.hash(getId(), getAddressType(), getCity(), getZipCode(), getStreet(), getHomeNumber(), getFlatNumber());
     }
 }
