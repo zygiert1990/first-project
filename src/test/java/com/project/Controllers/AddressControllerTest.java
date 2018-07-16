@@ -46,14 +46,6 @@ public class AddressControllerTest {
     }
 
     @Test
-    public void test() {
-        ServletContext servletContext = webApplicationContext.getServletContext();
-        assertNotNull(servletContext);
-        assertTrue(servletContext instanceof MockServletContext);
-        assertNotNull(webApplicationContext.getBean("addressController"));
-    }
-
-    @Test
     public void shouldSaveAddress() throws Exception {
         Address address = new Address("lublin");
 

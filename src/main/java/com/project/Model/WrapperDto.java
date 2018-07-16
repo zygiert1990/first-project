@@ -3,7 +3,9 @@ package com.project.Model;
 import com.project.POJOClasses.Address;
 import com.project.POJOClasses.User;
 
-public class WrapperDto {
+import java.io.Serializable;
+
+public class WrapperDto implements Serializable {
     private User user;
     private Address address;
 

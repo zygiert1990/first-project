@@ -54,7 +54,7 @@ public class UserServiceTest {
         Address foundAddress = addressService.findAll().get(0);
         //then
         assertEquals(user.getFirstName(), foundUser.getFirstName());
-        assertEquals(address.getCity(), foundAddress.getCity());
+        assertEquals(address, foundAddress);
     }
 
  /*   @Test

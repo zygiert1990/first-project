@@ -1,10 +1,14 @@
 package com.project.Controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.Model.UserType;
 import com.project.Model.WrapperDto;
 import com.project.POJOClasses.Address;
 import com.project.POJOClasses.User;
 import com.project.Services.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,22 +35,13 @@ public class UserController {
     @PostMapping(value = "/add")
     public void addWatcher(
             @RequestBody WrapperDto request
-            ){
-        userService.addUser(
-                new User(
-                        request.getUser().getUserType(),
-                        request.getUser().getFirstName(),
-                        request.getUser().getLastName(),
-                        request.getUser().getBirthDate()),
-                new Address(
-                        request.getAddress().getAddressType(),
-                        request.getAddress().getCity(),
-                        request.getAddress().getZipCode(),
-                        request.getAddress().getStreet(),
-                        request.getAddress().getHomeNumber()));
+            ) {
+        User user = request.getUser();
+        Address address = request.getAddress();
+        userService.addUser(user, address);
     }
 
-    @PostMapping(value = "/update/{id}")
+    @PutMapping(value = "/update/{id}")
     public void updateUser(@RequestBody User request, @PathVariable("id") long id){
         userService.updateUser(request, id);
     }

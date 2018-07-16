@@ -36,6 +36,15 @@ public class Address implements Comparable<Address>{
         this.homeNumber = homeNumber;
     }
 
+    public Address(AddressType addressType, String city, String zipCode, String street, String homeNumber, User user) {
+        this.addressType = addressType;
+        this.city = city;
+        this.zipCode = zipCode;
+        this.street = street;
+        this.homeNumber = homeNumber;
+        this.user = user;
+    }
+
     public Address(String city){
         this.city = city;
     }
@@ -142,7 +151,6 @@ public class Address implements Comparable<Address>{
 
     @Override
     public int hashCode() {
-
         return Objects.hash(getId(), getAddressType(), getCity(), getZipCode(), getStreet(), getHomeNumber(), getFlatNumber());
     }
 }
