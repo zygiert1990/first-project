@@ -15,4 +15,6 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
     @Override
     List<Phone> findAll();
+
+    Phone findByIdAndAndPhoneNumber(long id, String phoneNumber);
 }
