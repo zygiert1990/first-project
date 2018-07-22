@@ -17,4 +17,6 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 
     Address findAddressByAddressType(AddressType addressType);
 
+    Address findDistinctById(long id);
+
 }
