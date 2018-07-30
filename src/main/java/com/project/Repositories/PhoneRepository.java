@@ -17,7 +17,5 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
     List<Phone> findAll();
 
     Phone findDistinctById(long id);
-
-    Phone findFirstById(long id);
-
+    
 }
