@@ -17,4 +17,6 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 
     Address findAllByCity(String city);
 
+    Address countAllByCity(String city);
+
 }
