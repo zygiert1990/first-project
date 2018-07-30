@@ -16,6 +16,4 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
     @Override
     List<Phone> findAll();
 
-    Phone findDistinctById(long id);
-    
 }
