@@ -1,10 +1,8 @@
 package com.project.Services;
 
 import com.project.Model.AddressType;
-import com.project.Model.PhoneType;
 import com.project.Model.UserType;
 import com.project.POJOClasses.Address;
-import com.project.POJOClasses.Phone;
 import com.project.POJOClasses.User;
 import com.project.ProjectApplication;
 import org.junit.Test;
@@ -17,10 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
