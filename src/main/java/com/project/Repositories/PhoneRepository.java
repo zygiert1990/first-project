@@ -1,6 +1,5 @@
 package com.project.Repositories;
 
-import com.project.Model.PhoneType;
 import com.project.POJOClasses.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -16,15 +15,5 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
     @Override
     List<Phone> findAll();
-
-    Phone findByIdAndPhoneNumber(long id, String phoneNumber);
-
-    Phone findDistinctById(long id);
-
-    List<Phone> findAllById(long id);
-
-    Phone findDistinctByPhoneNumber(String phoneNumber);
-
-    Phone findDistinctByPhoneType(PhoneType phoneType);
 
 }
