@@ -20,4 +20,6 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
     Phone findDistinctById(long id);
 
+    List<Phone> findAllById(long id);
+
 }
